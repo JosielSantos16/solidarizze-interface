@@ -69,14 +69,14 @@ export function Campanha() {
       formData.append('file', file);
     }
   
-    const token = localStorage.getItem('token'); // ou sessionStorage
+    const token = localStorage.getItem('token'); 
   
     try {
       await toast.promise(
         api.post('campaigns', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${token}` // 👈 Aqui está o segredo
+            Authorization: `Bearer ${token}`
           }
         }),
         {

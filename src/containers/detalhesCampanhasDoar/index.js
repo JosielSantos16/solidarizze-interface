@@ -24,7 +24,7 @@ export function DetalhesCampanhasDoar() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Verifica se há dados atualizados no state da navegação
+  
     if (location.state?.updatedCampaign) {
       setCampanha(location.state.updatedCampaign);
       setLoading(false);
@@ -33,16 +33,29 @@ export function DetalhesCampanhasDoar() {
 
     const fetchCampaign = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/campaigns/${id}`);
-        setCampanha(response.data);
+          const token = localStorage.getItem('token');
+          const config = token ? {
+              headers: { Authorization: `Bearer ${token}` }
+          } : {};
+          
+          const response = await axios.get(
+              `http://localhost:3001/campaigns/${id}`,
+              config
+          );
+          setCampanha(response.data);
       } catch (err) {
-        console.error("Erro ao buscar campanha:", err);
-        setError(err.message);
-        toast.error('Erro ao carregar campanha');
+          console.error("Erro ao buscar campanha:", err);
+          if (err.response?.status === 401 || err.response?.status === 403) {
+              toast.error('Esta campanha é privada. Faça login para acessar.');
+              navigate('/login');
+          } else {
+              setError(err.message);
+              toast.error('Erro ao carregar campanha');
+          }
       } finally {
-        setLoading(false);
+          setLoading(false);
       }
-    };
+  };
 
     fetchCampaign();
   }, [id, location.state]);

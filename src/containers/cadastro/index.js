@@ -63,7 +63,6 @@ export function Cadastro() {
                 token: res.data.token || null
             });
 
-            // ✅ Salva o token no localStorage
             localStorage.setItem("token", res.data.token);
 
             navigate("/campanha");

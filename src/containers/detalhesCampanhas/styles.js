@@ -205,7 +205,7 @@ export const EndButton = styled.button`
 `;
 
 export const HighlightButton = styled(Button)`
-  background: #00b894; /* Verde chamativo */
+  background: #00b894; 
   color: white;
   font-size: 18px;
   font-weight: bold;

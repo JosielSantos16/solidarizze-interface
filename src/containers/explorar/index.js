@@ -31,6 +31,7 @@ import {
     CampaignsContainer,
     PaginationContainer,
     PaginationButton,
+    NoCampaignsMessage
 } from './styles';
 
 const categoryIcons = {
@@ -106,10 +107,9 @@ export function Explorar() {
         currentPage * campaignsPerPage
     );
 
-    // Logs para ajudar a depurar
-    console.log("Total de campanhas:", filteredCampaigns.length);
-    console.log("Página atual:", currentPage);
-    console.log("Campanhas exibidas:", campaignsToDisplay.map(c => c.id));
+    const getCategoryName = () => {
+        return categories.find(c => c.id === selectedCategory)?.name || "Todas";
+    };
 
     return (
         <>
@@ -150,12 +150,23 @@ export function Explorar() {
                 </Categorias>
 
                 <CampaignsContainer>
-                    {campaignsToDisplay.map(campaign => (
-                        <CardCampaigns key={campaign.id} campaign={campaign} />
-                    ))}
+                    {campaignsToDisplay.length > 0 ? (
+                        campaignsToDisplay.map(campaign => (
+                            <CardCampaigns key={campaign.id} campaign={campaign} />
+                        ))
+                    ) : (
+                        <NoCampaignsMessage>
+                            <h3>
+                                {selectedCategory === 0 
+                                    ? 'Nenhuma campanha encontrada' 
+                                    : `Ainda não há campanhas na categoria "${getCategoryName()}"`}
+                            </h3>
+                            <p>Que tal criar a primeira campanha?</p>
+                        </NoCampaignsMessage>
+                    )}
                 </CampaignsContainer>
 
-                {totalPages > 1 && (
+                {totalPages > 1 && campaignsToDisplay.length > 0 && (
                     <PaginationContainer>
                         <PaginationButton 
                             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}

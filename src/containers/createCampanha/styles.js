@@ -113,7 +113,7 @@ export const ErrorMessage = styled.p`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 20px; /* Espaçamento entre os botões */
+  gap: 20px; 
   margin-top: 30px;
   width: 100%;
 `;

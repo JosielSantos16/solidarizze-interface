@@ -29,16 +29,15 @@ export function Admin() {
 
   const fetchUserCampaigns = async () => {
     try {
-      setLoading(true);
-      const { data } = await api.get("/campaigns/private"); 
-      setCampaigns(data);
+        const { data } = await api.get("/campaigns/private/list");
+        setCampaigns(data);
     } catch (error) {
-      toast.error("Erro ao carregar campanhas");
-      console.error("Erro ao buscar campanhas:", error.response?.data || error.message);
+        toast.error("Erro ao carregar campanhas");
+        console.error("Erro ao buscar campanhas:", error.response?.data || error.message);
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   const handlePublishCampaign = async (id) => {
     try {

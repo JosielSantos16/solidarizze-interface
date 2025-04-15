@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import { toast } from 'react-toastify';
+import { useUser } from '../../hooks/userContext'; 
 import { 
   Container,
   ContainerItens,
@@ -23,8 +24,22 @@ export function Doar() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [isDonating, setIsDonating] = useState(false);
+  const { isAuthenticated } = useUser();
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      toast.warning('Por favor, faça login para realizar doações');
+      navigate('/login', { 
+        state: { 
+          from: { 
+            pathname: `/detalhes-campanhas/doar/${id}`,
+            search: window.location.search 
+          } 
+        } 
+      });
+      return;
+    }
+
     async function fetchCampaign() {
       try {
         const { data } = await api.get(`/campaigns/${id}`);
@@ -39,7 +54,7 @@ export function Doar() {
     }
 
     fetchCampaign();
-  }, [id]);
+  }, [id, isAuthenticated, navigate]);
 
   const handleValorChange = (e) => {
     let value = e.target.value.replace(/\D/g, '');
@@ -60,17 +75,14 @@ export function Doar() {
     setIsDonating(true);
     
     try {
-      // Converter valor para número (ex: "10,50" → 10.50)
       const valorNumerico = parseFloat(valor.replace(',', '.'));
       
-      // Enviar a doação para o backend
       const { data } = await api.post(`/campaigns/${id}/donate`, {
         amount: valorNumerico
       });
 
       toast.success(`Doação de R$${valor} realizada com sucesso!`);
       
-      // Navegar para a página de detalhes com os dados atualizados
       navigate(`/detalhes-campanhas/${id}`, {
         state: { 
           updatedCampaign: {
@@ -143,10 +155,6 @@ export function Doar() {
               </ContainerButton>
             </ButtonContainer>
 
-            <p className="security-info">
-              <strong>Contribuição Segura</strong><br />
-              Sua doação é protegida por criptografia avançada.
-            </p>
           </form>
         </ContainerItens>
       </Container>

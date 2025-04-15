@@ -13,7 +13,7 @@ export const Container = styled.div`
     max-width: 1200px;
 
     .rec.rec-arrow {
-        background-color: #3da9fc;
+        background: linear-gradient(135deg, #3da9fc 0%, #1a73e8 100%);
         color: white;
         border: none;
         width: 30px;

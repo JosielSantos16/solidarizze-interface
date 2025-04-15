@@ -31,7 +31,7 @@ font-size: 25px;
 `
 export const Introducao = styled.div`
 height: 300px;
-background-color: #3da9fc;
+background: linear-gradient(135deg, #3da9fc 0%, #1a73e8 100%);
 padding: 20px;
 text-align: center;
 
@@ -55,3 +55,4 @@ color: white;
 export const ContainerDivider = styled.div`
 background-color: #FAFAFA;
 `
+

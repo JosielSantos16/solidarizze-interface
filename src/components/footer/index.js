@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './styles.js';
 import LogoImg from '../../assets/solidarizze.png';
-import { SolidarizzeImg, ContainerImg, DivLinks, DivContatos, Display } from './styles.js';
+import { SolidarizzeImg, ContainerImg, DivLinks, DivContatos, Display, FooterBottom } from './styles.js';
 
 export const Footer = () => {
   return (
@@ -29,6 +29,9 @@ export const Footer = () => {
           <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
         </DivContatos>
       </Display>
+      <FooterBottom>
+        <p>&copy; {new Date().getFullYear()} Solidarizze. Todos os direitos reservados.</p>
+      </FooterBottom>
     </Container>
   );
 };

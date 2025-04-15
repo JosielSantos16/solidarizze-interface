@@ -239,3 +239,26 @@ export const LoadMoreButton = styled.button`
         background-color: #03b9a0;
     }
 `;
+
+export const NoCampaignsMessage = styled.div`
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    h3 {
+        color: #555;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #888;
+        font-size: 1rem;
+    }
+`;

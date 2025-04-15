@@ -5,75 +5,72 @@ import Figura3 from '../../assets/figura3.png';
 import Figura4 from '../../assets/figura4.png';
 import Figura5 from '../../assets/figura5.png';
 import Figura6 from '../../assets/figura6.png';
-
 import {
   Div,
   Titulo,
+  Divider,
   Container,
+  ServicesGrid,
+  ServiceRow,
   Service,
+  ServiceIcon,
+  ServiceContent,
   ServiceTitle,
-  ServiceDescription,
-  ImgFigura,
-  ServiceGroup 
+  ServiceDescription
 } from './styles';
 
 export const Session = () => {
+  const services = [
+    {
+      icon: Figura1,
+      title: "Escolha uma campanha",
+      description: "Navegue por diversas campanhas e escolha aquela que mais combina com você."
+    },
+    {
+      icon: Figura2,
+      title: "Faça sua doação",
+      description: "Escolha o valor que deseja contribuir e complete o processo de forma segura."
+    },
+    {
+      icon: Figura3,
+      title: "Pagamento seguro",
+      description: "Utilizamos os mais modernos métodos de pagamento para sua segurança."
+    },
+    {
+      icon: Figura4,
+      title: "Acompanhe o impacto",
+      description: "Receba atualizações sobre como sua doação está fazendo a diferença."
+    },
+    {
+      icon: Figura5,
+      title: "Compartilhe",
+      description: "Incentive outras pessoas a participar compartilhando nas redes sociais."
+    },
+    {
+      icon: Figura6,
+      title: "Progresso em tempo real",
+      description: "Acompanhe o desenvolvimento da campanha e veja a comunidade se unindo."
+    }
+  ];
+
   return (
     <Div>
       <Titulo>Como Funciona?</Titulo>
-      <hr />
+      <Divider />
       <Container>
-        <ServiceGroup>
-          <Service>
-            <ServiceTitle>Escolha uma campanha que você deseja apoiar.</ServiceTitle>
-            <ImgFigura src={Figura1}/>
-            <ServiceDescription>
-              Navegue por diversas campanhas e escolha aquela que mais combina com você.
-            </ServiceDescription>
-          </Service>
-
-          <Service>
-            <ServiceTitle>Clique em "Doar" e selecione o valor.</ServiceTitle>
-            <ImgFigura src={Figura2}/>
-            <ServiceDescription>
-              Escolha o valor que deseja doar e clique no botão "Doar" para continuar.
-            </ServiceDescription>
-          </Service>
-
-          <Service>
-            <ServiceTitle>Complete o processo de pagamento de forma segura.</ServiceTitle>
-            <ImgFigura src={Figura3}/>
-            <ServiceDescription>
-              Utilize nossos métodos de pagamento seguros para finalizar sua doação.
-            </ServiceDescription>
-          </Service>
-        </ServiceGroup>
-
-        <ServiceGroup>
-          <Service>
-            <ServiceTitle>Receba atualizações sobre o impacto da sua doação.</ServiceTitle>
-            <ImgFigura src={Figura4}/>
-            <ServiceDescription>
-              Fique por dentro de como sua doação está ajudando a fazer a diferença.
-            </ServiceDescription>
-          </Service>
-
-          <Service>
-            <ServiceTitle>Compartilhe sua doação com amigos e familiares.</ServiceTitle>
-            <ImgFigura src={Figura5}/>
-            <ServiceDescription>
-              Incentive outras pessoas a doar compartilhando sua experiência nas redes sociais.
-            </ServiceDescription>
-          </Service>
-
-          <Service>
-            <ServiceTitle>Veja o progresso da campanha em tempo real.</ServiceTitle>
-            <ImgFigura src={Figura6}/>
-            <ServiceDescription>
-              Acompanhe o progresso da campanha e veja como cada doação faz a diferença.
-            </ServiceDescription>
-          </Service>
-        </ServiceGroup>
+        <ServicesGrid>
+          <ServiceRow>
+            {services.map((service, index) => (
+              <Service key={index}>
+                <ServiceIcon src={service.icon} alt={service.title}/>
+                <ServiceContent>
+                  <ServiceTitle>{service.title}</ServiceTitle>
+                  <ServiceDescription>{service.description}</ServiceDescription>
+                </ServiceContent>
+              </Service>
+            ))}
+          </ServiceRow>
+        </ServicesGrid>
       </Container>
     </Div>
   );

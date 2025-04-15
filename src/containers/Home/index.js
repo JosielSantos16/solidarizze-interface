@@ -38,10 +38,8 @@ export function Home() {
 
             <CampanhasCarousel />
 
-            <ContainerDivider>
-                <Divider fillColor="#3DA9FC" height="150px" />
+            <ContainerDivider>   
                 <Session/>
-                <DividerBottomLeft/>
                 <How/>
                 <CustomAccordion/>
                 <Footer/>

@@ -16,7 +16,7 @@ export const Container = styled.div`
   .navbar {
     display: flex;
     padding: 0px 35px; 
-    background: rgb(13,160,202);
+    background: linear-gradient(135deg, #3da9fc 0%, #1a73e8 100%);
     justify-content: space-between;
     height: 70px;
     align-items: center;

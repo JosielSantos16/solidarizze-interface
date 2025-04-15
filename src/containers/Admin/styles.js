@@ -34,7 +34,7 @@ export const CampaignList = styled.div`
 
 export const CampaignItem = styled.div`
   display: flex;
-  flex-direction: column; // mobile first
+  flex-direction: column; 
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
@@ -47,7 +47,7 @@ export const CampaignItem = styled.div`
   }
 
   @media (min-width: 768px) {
-    flex-direction: row; // desktop
+    flex-direction: row; 
   }
 `;
 
@@ -96,7 +96,7 @@ export const CampaignContent = styled.div`
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    max-height: 4.2em; // cerca de 3 linhas
+    max-height: 4.2em; 
   }
 `;
 

@@ -1,12 +1,12 @@
 import React from "react";
-import { Button } from "../../components/Button"; 
+import { Button } from "../../components/Button";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup';
 import api from "../../services/api";
 import { toast } from 'react-toastify';
 import { useUser } from "../../hooks/userContext";
-import { useNavigate} from "react-router-dom"; 
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Container,
   ContainerItens,
@@ -25,13 +25,13 @@ const schema = Yup.object().shape({
 
 export function Login() {
   const { putUserData } = useUser();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const location = useLocation();
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
 
   const onSubmit = async clientData => {
-    console.log("Dados enviados:", clientData); 
     try {
       const { data } = await toast.promise(
         api.post('sessions', {
@@ -45,10 +45,15 @@ export function Login() {
         }
       );
 
-      putUserData(data); 
-      console.log("Resposta da API:", data);
+      putUserData(data);
 
-      navigate("/campanha");
+      const from = location.state?.from || { pathname: "/campanha" };
+ 
+      navigate(from.pathname, { 
+        replace: true,
+        state: { from: undefined } 
+      });
+
     } catch (error) {
       console.error("Erro na requisição:", error.response ? error.response.data : error.message);
     }
@@ -56,30 +61,39 @@ export function Login() {
 
   return (
     <>
-    <Header/>
-    <Container>
-      <ContainerItens>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h1><b>Entrar</b></h1>
-          <P>Faça login para acessar sua conta e gerenciar suas campanhas!</P>
+      <Header/>
+      <Container>
+        <ContainerItens>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <h1><b>Entrar</b></h1>
+            <P>Faça login para acessar sua conta e gerenciar suas campanhas!</P>
 
-          <Label>Email</Label>
-          <Input placeholder="Digite seu email" {...register("email")} type="email" error={errors.email?.message} />
-          <ErrorMessage>{errors.email?.message}</ErrorMessage>
+            <Label>Email</Label>
+            <Input 
+              placeholder="Digite seu email" 
+              {...register("email")} 
+              type="email" 
+              error={errors.email?.message} 
+            />
+            <ErrorMessage>{errors.email?.message}</ErrorMessage>
 
-          <Label>Senha</Label>
-          <Input placeholder="Sua senha" {...register("password")} type="password" error={errors.password?.message} />
-          <ErrorMessage>{errors.password?.message}</ErrorMessage>
+            <Label>Senha</Label>
+            <Input 
+              placeholder="Sua senha" 
+              {...register("password")} 
+              type="password" 
+              error={errors.password?.message} 
+            />
+            <ErrorMessage>{errors.password?.message}</ErrorMessage>
 
-          <Button style={{ marginTop: 30 }} type="submit">Entrar</Button>
+            <Button style={{ marginTop: 30 }} type="submit">Entrar</Button>
 
-          <SignUpLink>
-            Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
-          </SignUpLink>
-        </form>
-      </ContainerItens>
-    </Container>
+            <SignUpLink>
+              Não tem uma conta? <a href="/cadastro">Cadastre-se</a>
+            </SignUpLink>
+          </form>
+        </ContainerItens>
+      </Container>
     </>
   );
 }
-
