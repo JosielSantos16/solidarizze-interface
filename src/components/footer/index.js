@@ -24,15 +24,15 @@ export const Footer = () => {
 
         <DivContatos>
           <h1>Contato</h1>
-          <p>Email: contato@solidarizze.com</p>
-          <p>Telefone: (11) 98765-4321</p>
-          <p>Endereço: Rua Exemplo, 123 - São Paulo, SP</p>
+          <p>Email: josielufopa@gmail.com</p>
+          <p>Telefone: +5593992457354</p>
+          <p>Endereço: Oriximiná - Pará</p>
         </DivContatos>
       </Display>
       <FooterBottom>
         <p>&copy; {new Date().getFullYear()} Solidarizze. Todos os direitos reservados.</p>
       </FooterBottom>
     </Container>
-  );
+  );  
 };
 

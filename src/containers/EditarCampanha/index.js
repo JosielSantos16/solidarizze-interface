@@ -45,6 +45,7 @@ export function EditarCampanha() {
   const [currentImage, setCurrentImage] = useState("");
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  
 
   useEffect(() => {
     async function loadData() {

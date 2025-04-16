@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Body = styled.div`
-background-color:  #FAFAFA;
+    background-color: #FAFAFA;
 `
 
 export const Container = styled.div`
@@ -33,6 +33,18 @@ export const Container = styled.div`
             visibility: hidden; 
         }
     }
+
+    @media (max-width: 768px) {
+        padding: 10px;
+
+        .rec.rec-arrow {
+            width: 25px;
+            height: 25px;
+            min-width: 25px;
+            line-height: 25px;
+            font-size: 12px;
+        }
+    }
 `;
 
 export const Header = styled.div`
@@ -41,6 +53,10 @@ export const Header = styled.div`
     align-items: center;
     margin-bottom: 40px;
     width: 100%;
+
+    @media (max-width: 768px) {
+        margin-bottom: 20px;
+    }
 `;
 
 export const TitleContainer = styled.div`
@@ -50,6 +66,12 @@ export const TitleContainer = styled.div`
         margin-top: 50px;
         margin-bottom: -25px;
         text-align: left;
+
+        @media (max-width: 768px) {
+            font-size: 28px;
+            margin-top: 30px;
+            margin-bottom: -15px;
+        }
     }
 
     p {
@@ -60,13 +82,17 @@ export const TitleContainer = styled.div`
     }
 `;
 
-
 export const ButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-top: -30px; 
-  margin-bottom: 70px; 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: -30px; 
+    margin-bottom: 70px; 
+
+    @media (max-width: 768px) {
+        margin-top: -10px;
+        margin-bottom: 40px;
+    }
 `;
 
 export const VerMaisButton = styled.button`
@@ -84,12 +110,14 @@ export const VerMaisButton = styled.button`
     letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    margin-top: 50px;
     
     &:hover {
         background-color: rgba(0, 0, 0, 0.05); 
         color: #000000;
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
 
     &:active {
         transform: translateY(0);
@@ -112,14 +140,15 @@ export const VerMaisButton = styled.button`
         transition: all 0.5s;
     }
 
-     &:hover::after {
+    &:hover::after {
         left: 100%;
     }
 
-    &:active::before {
-        opacity: 1;
+    @media (max-width: 768px) {
+        width: 180px;
+        height: 45px;
+        font-size: 13px;
     }
-}
 `;
 
 export const Campaigns = styled.div`
@@ -128,7 +157,8 @@ export const Campaigns = styled.div`
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
+    width: 90%;
+    margin: 10px auto;
 
     &:hover {
         transform: translateY(-5px);
@@ -141,31 +171,47 @@ export const Campaigns = styled.div`
         object-fit: cover;
         border-radius: 8px 8px 0 0;
     }
+
+    @media (max-width: 768px) {
+        width: 95%;
+        margin-bottom: 40px;
+    }
 `;
 
 export const Info = styled.div`
-    padding: 20px;
+    padding: 15px;
     text-align: left;
     position: relative;
     background: white;
     border-radius: 0 0 8px 8px;
 
     h2 {
-    font-size: 24px;
-    color: #094067;
-    margin-bottom: 15px;
-    font-weight: 600;
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-height: 60px; 
-}
-
+        font-size: 20px;
+        color: #094067;
+        margin-bottom: 10px;
+        font-weight: 600;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        min-height: 50px;
+    }
 
     p {
-        font-size: 16px;
+        font-size: 14px;
         color: #555;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+        padding: 12px;
+        
+        h2 {
+            font-size: 18px;
+            min-height: 40px;
+        }
+        
+        p {
+            font-size: 13px;
+        }
     }
 `;
-

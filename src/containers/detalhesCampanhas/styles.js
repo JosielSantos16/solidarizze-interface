@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Button } from "../../components/Button";
 
-
 export const Container = styled.div`
   display: flex;
   gap: 30px;
@@ -11,16 +10,29 @@ export const Container = styled.div`
   margin-top: 40px;
   margin-bottom: 80px;
   margin-right: 370px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 15px;
+    margin-right: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    gap: 20px;
+  }
 `;
 
 export const LeftDiv = styled.div`
   flex: 1;
   max-width: 60%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
 `;
 
 export const RightDiv = styled.div`
-margin-top: 7px;
-margin-right: -70px;
+  margin-top: 57px;
+  margin-right: -70px;
   flex: 1;
   max-width: 40%;
 
@@ -37,6 +49,13 @@ margin-right: -70px;
     color: #666;
     font-size: 14px;
   }
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 0 10px;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -50,6 +69,10 @@ export const BackButton = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
 `;
 
 export const CampaignImage = styled.img`
@@ -58,12 +81,21 @@ export const CampaignImage = styled.img`
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    max-height: 300px;
+  }
 `;
 
 export const CampaignTitle = styled.h1`
   font-size: 35px;
   color: #094067;
   margin: 0 0 20px 0;
+
+  @media (max-width: 768px) {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
 `;
 
 export const CampaignDescription = styled.p`
@@ -72,6 +104,12 @@ export const CampaignDescription = styled.p`
   color: #555;
   margin-top: 20px;
   margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 `;
 
 export const CampaignMeta = styled.div`
@@ -124,12 +162,38 @@ export const CampaignMeta = styled.div`
       color: #5f6c7b;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    
+    .arrecadado, .meta {
+      .label {
+        font-size: 20px;
+      }
+      
+      .valor {
+        font-size: 28px;
+      }
+    }
+    
+    .apoiadores {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+  }
 `;
 
 export const CampaignActions = styled.div`
   display: flex;
   gap: 15px;
   margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const OrganizerInfo = styled.div`
@@ -166,6 +230,10 @@ export const OrganizerInfo = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const SupportSection = styled.div`
@@ -183,6 +251,10 @@ export const SupportSection = styled.div`
     color: #666;
     margin-bottom: 15px;
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+  }
 `;
 
 export const EditButton = styled.button`
@@ -192,6 +264,10 @@ export const EditButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const EndButton = styled.button`
@@ -202,10 +278,14 @@ export const EndButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const HighlightButton = styled(Button)`
-  background: #00b894; 
+  background: #3da9fc; 
   color: white;
   font-size: 18px;
   font-weight: bold;
@@ -234,6 +314,10 @@ export const HighlightButton = styled(Button)`
   }
 
   animation: pulse 1.5s infinite;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px;
+  }
 `;
-
-

@@ -11,6 +11,12 @@ background-color: #F3F5F9;
 background-image: url(${Background});
 background-size: cover;
 background-position: center;
+
+@media (max-width: 768px) {
+    align-items: flex-start;
+    background-image: none;
+    background-color: #fefefe;
+  }
 `
 
 export const ContainerItens = styled.div`
@@ -37,6 +43,14 @@ box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     margin-top: 10px;  
     font-size: 40px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 25px 35px;
+    width: 85%;
+    margin-top: 30px;
+    box-shadow: none; 
+    width: 100%; 
   }
 `;
 

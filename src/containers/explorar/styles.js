@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `;
 
 export const Banner = styled.div`
@@ -13,6 +17,7 @@ export const Banner = styled.div`
     background-color: #162737;
     position: relative;
     overflow: hidden;
+
 `;
 
 export const ImageBanner = styled.img`
@@ -23,8 +28,16 @@ export const ImageBanner = styled.img`
     transform: translateY(-50%);
     
     @media (max-width: 768px) {
-        height: 280px;
+        height: 220px;
         left: 5%;
+        position: relative;
+        transform: none;
+        top: auto;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 480px) {
+        height: 180px;
     }
 `;
 
@@ -51,8 +64,17 @@ export const Descricao = styled.p`
     }
     
     @media (max-width: 768px) {
-        font-size: 32px;
+        font-size: 24px;
         right: 20px;
+        max-width: 50%;
+        position: relative;
+        transform: none;
+        top: auto;
+        text-align: left;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 20px;
         max-width: 60%;
     }
 `;
@@ -97,6 +119,12 @@ export const Categorias = styled.div`
         width: 95%;
         height: auto;
         padding: 15px;
+        margin-top: -30px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px;
+        margin-top: -20px;
     }
 `;
 
@@ -149,6 +177,11 @@ export const CategoryButton = styled.div`
         width: 80px;
         height: 90px;
     }
+
+    @media (max-width: 480px) {
+        width: 70px;
+        height: 80px;
+    }
 `;
 
 export const CategoryIcon = styled.div`
@@ -157,6 +190,10 @@ export const CategoryIcon = styled.div`
     
     @media (max-width: 768px) {
         font-size: 24px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 20px;
     }
 `;
 
@@ -171,6 +208,10 @@ export const CategoryName = styled.div`
     @media (max-width: 768px) {
         font-size: 12px;
     }
+
+    @media (max-width: 480px) {
+        font-size: 10px;
+    }
 `;
 
 export const CampaignsContainer = styled.div`
@@ -183,10 +224,13 @@ export const CampaignsContainer = styled.div`
 
     @media (max-width: 900px) {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        padding: 30px;
     }
 
     @media (max-width: 600px) {
         grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 15px;
     }
 `;
 
@@ -197,6 +241,11 @@ export const PaginationContainer = styled.div`
     margin: 2rem auto;
     gap: 10px;
     flex-wrap: wrap;
+
+    @media (max-width: 480px) {
+        gap: 5px;
+        margin: 1.5rem auto;
+    }
 `;
 
 export const PaginationButton = styled.button`
@@ -221,6 +270,11 @@ export const PaginationButton = styled.button`
         cursor: not-allowed;
         transform: none;
     }
+
+    @media (max-width: 480px) {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
 `;
 
 export const LoadMoreButton = styled.button`
@@ -237,6 +291,12 @@ export const LoadMoreButton = styled.button`
 
     &:hover {
         background-color: #03b9a0;
+    }
+
+    @media (max-width: 480px) {
+        padding: 10px 20px;
+        font-size: 14px;
+        margin: 20px auto;
     }
 `;
 
@@ -260,5 +320,17 @@ export const NoCampaignsMessage = styled.div`
     p {
         color: #888;
         font-size: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        padding: 30px 0;
+        
+        h3 {
+            font-size: 1.3rem;
+        }
+        
+        p {
+            font-size: 0.9rem;
+        }
     }
 `;

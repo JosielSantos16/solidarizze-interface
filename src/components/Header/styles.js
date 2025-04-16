@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaHeart, FaSearch, FaPlus } from 'react-icons/fa';
 
 export const Container = styled.div`
   * {
@@ -15,11 +14,12 @@ export const Container = styled.div`
 
   .navbar {
     display: flex;
-    padding: 0px 35px; 
+    padding: 0px 30px;
     background: linear-gradient(135deg, #3da9fc 0%, #1a73e8 100%);
     justify-content: space-between;
     height: 70px;
     align-items: center;
+    position: relative;
   }
 
   .logo-container {
@@ -27,14 +27,13 @@ export const Container = styled.div`
     align-items: center;
   }
 
-  .logo {
-    height: 50px;
-  }
+  
 
   .menu-container {
     display: flex;
     align-items: center;
     gap: 15px;
+    transition: all 0.3s ease;
   }
 
   button {
@@ -66,18 +65,43 @@ export const Container = styled.div`
   }
 
   @media (max-width: 768px) {
-    .navbar {
-      padding: 0px 15px;
-    }
-    
     .menu-container {
-      gap: 10px;
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 70px;
+      right: 0;
+      background-color: #1a73e8;
+      width: 100%;
+      padding: 20px;
+      z-index: 999;
+      height: 100vh;
     }
-    
+
+    .menu-container.active {
+      display: flex;
+    }
+
     button {
-      padding: 6px 12px;
-      font-size: 0.9rem;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 1rem;
     }
+
+    .navbar {
+      padding: 0 15px;
+    }
+  }
+`;
+
+export const Hamburger = styled.div`
+  display: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 `;
 

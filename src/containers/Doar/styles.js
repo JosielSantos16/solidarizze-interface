@@ -10,6 +10,12 @@ export const Container = styled.div`
   background-size: cover;
   background-position: center;
   padding: 40px 0;
+
+  @media (max-width: 768px) {
+    padding: 20px 0;
+    background-image: none;
+    align-items: flex-start;
+  }
 `;
 
 export const ContainerItens = styled.div`
@@ -43,6 +49,14 @@ export const ContainerItens = styled.div`
     font-size: 24px;
     margin-bottom: 30px;
   }
+
+  @media (max-width: 768px) {
+    padding: 25px;
+    margin: 10px;
+    box-shadow: none;
+    border-radius: 0;
+    background: transparent;
+  }
 `;
 
 export const BackButton = styled.button`
@@ -60,6 +74,10 @@ export const BackButton = styled.button`
 
   &:hover {
     text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
   }
 `;
 
@@ -111,6 +129,13 @@ export const CampaignMeta = styled.div`
       transition: width 0.3s ease;
     }
   }
+
+  @media (max-width: 768px) {
+    padding: 15px;
+    box-shadow: none;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+  }
 `;
 
 export const SectionDivider = styled.hr`
@@ -118,6 +143,10 @@ export const SectionDivider = styled.hr`
   border-top: 1px solid #eaeaea;
   margin: 1.5rem 0;
   width: 100%;
+
+  @media (max-width: 768px) {
+    margin: 1rem 0;
+  }
 `;
 
 export const Label = styled.label`
@@ -126,6 +155,10 @@ export const Label = styled.label`
   font-weight: 500;
   color: #2d334a;
   font-size: 14px;
+
+  @media (max-width: 768px) {
+    margin-top: 10px;
+  }
 `;
 
 export const Input = styled.input`
@@ -147,6 +180,10 @@ export const Input = styled.input`
   &::placeholder {
     color: #aaa;
   }
+
+  @media (max-width: 768px) {
+    height: 45px;
+  }
 `;
 
 export const InputValor = styled(Input)`
@@ -154,6 +191,10 @@ export const InputValor = styled(Input)`
   font-weight: bold;
   padding: 10px 15px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -161,6 +202,10 @@ export const ButtonContainer = styled.div`
   justify-content: center;
   margin-top: 30px;
   width: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 export const ContainerButton = styled.button`
@@ -183,6 +228,10 @@ export const ContainerButton = styled.button`
   &:active {
     transform: scale(0.98);
   }
+
+  @media (max-width: 768px) {
+    padding: 14px;
+  }
 `;
 
 export const ErrorMessage = styled.p`
@@ -202,5 +251,9 @@ export const SecureInfo = styled.div`
     display: block;
     margin-bottom: 5px;
     color: #094067;
+  }
+
+  @media (max-width: 768px) {
+    margin-top: 15px;
   }
 `;

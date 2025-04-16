@@ -11,8 +11,6 @@ import {
   CampaignMeta,
   CampaignActions,
   HighlightButton,
-  EditButton,
-  EndButton
 } from "./styles";
 import { Footer, Header } from "../../components";
 
@@ -55,7 +53,7 @@ export function DetalhesCampanhas() {
   };
 
   const handleAjudarCampanha = () => {
-    navigate(`/doar/${id}`); 
+    navigate(`/detalhes-campanhas/doar/${id}`); 
   };
 
   return (
@@ -71,10 +69,6 @@ export function DetalhesCampanhas() {
         </LeftDiv>
 
         <RightDiv>
-          <div className="header-actions">
-            <EditButton>Editar</EditButton>
-            <EndButton>Encerrar</EndButton>
-          </div>
 
           <CampaignMeta>
             <div className="arrecadado">

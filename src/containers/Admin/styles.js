@@ -6,6 +6,11 @@ export const Container = styled.div`
   font-family: 'Arial', sans-serif;
   margin: 0 auto 10rem auto; 
   margin-top: 25px;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    margin-bottom: 5rem;
+  }
 `;
 
 export const HeaderSection = styled.div`
@@ -18,6 +23,16 @@ export const HeaderSection = styled.div`
     font-size: 2rem;
     color: #094067;
     margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 `;
 
@@ -27,8 +42,13 @@ export const CampaignList = styled.div`
   gap: 1.5rem;
   margin-top: 1.5rem;
 
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 `;
 
@@ -40,6 +60,7 @@ export const CampaignItem = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   background: white;
+  height: 250px;
 
   &:hover {
     transform: translateY(-2px);
@@ -65,15 +86,19 @@ export const DivLeft = styled.div`
   @media (min-width: 768px) {
     width: 40%;
     height: auto;
+    min-height: 200px;
   }
 `;
-
 
 export const DivRight = styled.div`
   flex: 1;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 0.75rem;
+  }
 `;
 
 export const CampaignContent = styled.div`
@@ -85,6 +110,10 @@ export const CampaignContent = styled.div`
     margin: 0 0 0.5rem 0;
     color: #094067;
     font-size: 1.2rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.1rem;
+    }
   }
 
   p {
@@ -97,14 +126,22 @@ export const CampaignContent = styled.div`
     -webkit-box-orient: vertical;
     overflow: hidden;
     max-height: 4.2em; 
+
+    @media (max-width: 768px) {
+      font-size: 0.85rem;
+    }
   }
 `;
-
 
 export const ButtonGroup = styled.div`
   display: flex;
   gap: 0.5rem;
   margin-top: auto;
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
 `;
 
 export const Button = styled.button`
@@ -121,6 +158,11 @@ export const Button = styled.button`
   &:hover {
     background: ${props => props.primary ? '#0055aa' : '#e0e0e0'};
   }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
 `;
 
 export const CreateButton = styled.button`
@@ -136,6 +178,12 @@ export const CreateButton = styled.button`
   &:hover {
     background: #0055aa;
   }
+
+  @media (max-width: 768px) {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
 `;
 
 export const EmptyMessage = styled.div`
@@ -150,10 +198,18 @@ export const EmptyMessage = styled.div`
     margin-top: 1rem;
     display: inline-block;
   }
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 `;
 
 export const LoadingMessage = styled.p`
   text-align: center;
   padding: 2rem;
   color: #666;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 `;

@@ -10,7 +10,8 @@ import {
     Introducao,
     Titulo,
     Description,
-    ContainerDivider
+    ContainerDivider,
+    BannerButton 
 } from './styles';
 
 export function Home() {
@@ -23,7 +24,8 @@ export function Home() {
                 <SolidarizzeImg src={LogoImg} alt="Solidarizze" />
                 <Descricao>Incentivando Caridade Através da Tecnologia</Descricao>
                 <Link to={isAuthenticated ? "/campanha" : "/cadastro"}>
-                    <Button style={{ marginRight: 700 }}>Criar campanha</Button>
+                <BannerButton className="banner-button">Criar campanha</BannerButton>
+
                 </Link>
             </Banner>
 

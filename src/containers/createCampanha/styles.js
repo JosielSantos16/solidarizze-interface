@@ -10,6 +10,12 @@ export const Container = styled.div`
   background-image: url(${Background});
   background-size: cover;
   background-position: center;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    background-image: none;
+    background-color: #fefefe;
+  }
 `;
 
 export const ContainerItens = styled.div`
@@ -38,6 +44,14 @@ export const ContainerItens = styled.div`
     color: #3da9fc;
     text-align: center;
     font-size: 32px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 25px 35px;
+    width: 85%;
+    margin-top: 30px;
+    box-shadow: none; 
+    width: 100%; 
   }
 `;
 

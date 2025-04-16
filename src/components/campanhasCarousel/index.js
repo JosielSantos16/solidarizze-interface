@@ -24,6 +24,13 @@ export function CampanhasCarousel() {
         navigate(`/detalhes-campanhas/${campaignId}`); 
     };
 
+    const breakPoints = [
+        { width: 1, itemsToShow: 1 },
+        { width: 550, itemsToShow: 2 },
+        { width: 768, itemsToShow: 3 },
+        { width: 1200, itemsToShow: 3 }
+    ];
+
     return (
         <Body>
             <Container>
@@ -32,7 +39,14 @@ export function CampanhasCarousel() {
                         <h1>Descubra campanhas</h1>
                     </TitleContainer>
                 </Header>
-                <Carousel itemsToShow={3} pagination={false} showArrows={true} itemPadding={[50, 20]}>
+                <Carousel 
+                    breakPoints={breakPoints}
+                    pagination={false} 
+                    showArrows={true} 
+                    itemPadding={[10, 10]}
+                    enableAutoPlay={true}
+                    autoPlaySpeed={5000}
+                >
                     {campaigns && campaigns.map(campaign => (
                         <Campaigns 
                             key={campaign.id}
